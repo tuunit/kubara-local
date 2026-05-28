@@ -1,0 +1,17 @@
+oauth2-proxy:
+  config:
+    existingSecret: oauth2-credentials
+    configFile: |-
+      reverse_proxy = true
+      redirect_url = "http://172.18.0.2.traefik.me/oauth2/callback"
+      email_domains = [ "*" ]
+      cookie_secure = false
+      upstreams = [ "static://200" ]
+      provider = "oidc"
+      oidc_issuer_url = "http://openbao.172.18.0.2.traefik.me/v1/identity/oidc/provider/default"
+      scope = "openid"
+      insecure_oidc_allow_unverified_email = true
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: ""
+    tls: []
