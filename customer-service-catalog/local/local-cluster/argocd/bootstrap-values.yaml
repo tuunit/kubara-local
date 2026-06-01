@@ -1,0 +1,45 @@
+bootstrapValues:
+  projects:
+    local-cluster-dev:
+      sourceRepos:
+        - "https://github.com/tuunit/kubara-local.git"
+        - "https://charts.external-secrets.io/"
+        - "https://charts.jetstack.io"
+        - "https://oauth2-proxy.github.io/manifests"
+        - "https://prometheus-community.github.io/helm-charts"
+        - "ghcr.io/traefik/helm"
+        - "oci://ghcr.io/traefik/helm"
+argo-cd:
+  server:
+    ingressGrpc:
+      enabled: false
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+  configs:
+    cm:
+      url: http://172.18.0.3.traefik.me/argocd
+      dex.config: |
+        connectors:
+          - type: oidc
+            id: openbao
+            name: OpenBao
+            config:
+              issuer: http://openbao.172.18.0.3.traefik.me/v1/identity/oidc/provider/default
+              clientID: M0pvggd06gXYDHm1WtxhS5b3QZ0dr35s
+              clientSecret: hvo_secret_BeVatSAsxdUGudzLKZKCf0ePImzrBYuxtFkC8VOjlFUmq82qspe8QReGZJD2xBcK
+              redirectURI: http://172.18.0.3.traefik.me/argocd/api/dex/callback
+              scopes:
+                - openid
+              insecureSkipEmailVerified: true
+              userIDKey: sub
+              userNameKey: sub
+    rbac:
+      policy.default: role:admin
+      policy.csv: ""
