@@ -1,0 +1,20 @@
+clusterSecretStores: {}
+namespace:
+  labels:
+    project-name: "local-cluster"
+    stage: "dev"
+external-secrets:
+  certController:
+    imagePullSecrets:
+      - name: image-pull-secret
+  webhook:
+    imagePullSecrets:
+      - name: image-pull-secret
+  imagePullSecrets:
+    - name: image-pull-secret
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      monitoring.instance: "local-cluster-dev"
+  bitwarden-sdk-server:
+    enabled: false

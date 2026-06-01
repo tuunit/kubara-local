@@ -1,0 +1,21 @@
+clusterIssuer:
+  name: letsencrypt-staging
+  email: yourname@your-domain.de
+  server: https://acme-staging-v02.api.letsencrypt.org/directory
+  ingressClassName: traefik
+
+
+cert-manager:
+  global:
+    imagePullSecrets:
+      - name: image-pull-secret
+  prometheus:
+    servicemonitor:
+      enabled: true
+      labels:
+        monitoring.instance: local-cluster-dev
+
+namespace:
+  labels:
+    project-name: "local-cluster"
+    stage: "dev"

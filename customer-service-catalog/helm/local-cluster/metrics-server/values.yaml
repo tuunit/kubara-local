@@ -1,0 +1,11 @@
+namespace:
+  labels:
+    project-name: "local-cluster"
+    stage: "dev"
+metrics-server:
+  imagePullSecrets:
+    - name: image-pull-secret
+  serviceMonitor:
+    additionalLabels:
+      monitoring:
+        instance: "local-cluster-dev"
