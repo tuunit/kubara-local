@@ -1,9 +1,9 @@
 version: v1alpha1
 clusters:
-  - name: test-cluster
+  - name: local-cluster
     stage: dev
     type: hub
-    dnsName: 172.18.0.2.traefik.me
+    dnsName: local-cluster-dev.traefik.me
     ssoOrg: local
     ssoTeam: local
     ingressClassName: traefik
