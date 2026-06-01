@@ -10,7 +10,7 @@ traefik:
       enabled: true
       entryPoints:
         - websecure
-      matchRule: Host(`172.18.0.3.traefik.me`) && PathPrefix(`/traefik`)
+      matchRule: Host(`kubara.172.18.0.3.traefik.me`) && PathPrefix(`/traefik`)
       middlewares:
         - name: oauth-auth
           namespace: traefik

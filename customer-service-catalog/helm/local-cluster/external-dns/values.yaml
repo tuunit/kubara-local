@@ -26,7 +26,7 @@ namespace:
 external-dns:
   txtOwnerId: local-cluster-dev
   domainFilters:
-    - 172.18.0.3.traefik.me
+    - kubara.172.18.0.3.traefik.me
   extraArgs:
     source:
       - traefik-proxy

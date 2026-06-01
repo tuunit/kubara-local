@@ -1,6 +1,6 @@
 ingress:
   enabled: true
-  host: 172.18.0.3.traefik.me
+  host: kubara.172.18.0.3.traefik.me
   path: "/"
   ingressClassName: traefik
   annotations:
@@ -111,7 +111,7 @@ dashboardConfig:
           target: "_blank"
         - name: "traefik"
           logo: "/assets/tools/traefik.png"
-          url: "https://172.18.0.3.traefik.me/traefik/dashboard/"
+          url: "https://kubara.172.18.0.3.traefik.me/traefik/dashboard/"
           subtitle: "Traefik Dashboard"
           target: "_blank"
     - name: "DevOps Links"

@@ -24,14 +24,14 @@ policy-reporter:
             oauth2-proxy-oauth-auth@kubernetescrd,
             kyverno-policy-reporter-strip-kyverno-prefix@kubernetescrd
       hosts:
-        - host: 172.18.0.3.traefik.me
+        - host: kubara.172.18.0.3.traefik.me
           paths:
             - path: "/kyverno"
               pathType: Prefix
       tls:
         - secretName: tls-kyverno-ui
           hosts:
-            - 172.18.0.3.traefik.me
+            - kubara.172.18.0.3.traefik.me
 
 middleware:
   name: strip-kyverno-prefix
