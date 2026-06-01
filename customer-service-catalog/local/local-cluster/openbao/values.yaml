@@ -3,7 +3,7 @@ server:
     enabled: true
     devRootToken: root
   ha:
-    apiAddr: "https://openbao.172.18.0.3.traefik.me"
+    apiAddr: "http://openbao.172.18.0.3.traefik.me"
   ingress:
     enabled: true
     ingressClassName: traefik

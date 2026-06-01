@@ -8,7 +8,7 @@ oauth2-proxy:
       cookie_secure = false
       upstreams = [ "static://200" ]
       provider = "oidc"
-      oidc_issuer_url = "https://openbao.172.18.0.3.traefik.me/v1/identity/oidc/provider/default"
+      oidc_issuer_url = "http://openbao.172.18.0.3.traefik.me/v1/identity/oidc/provider/default"
       scope = "openid"
       insecure_oidc_allow_unverified_email = true
   ingress:
