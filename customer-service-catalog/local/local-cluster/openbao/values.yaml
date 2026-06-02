@@ -1,0 +1,23 @@
+server:
+  dev:
+    enabled: true
+    devRootToken: root
+  ha:
+    apiAddr: "http://openbao.172.18.0.3.traefik.me"
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    activeService: false
+    hosts:
+      - host: openbao.172.18.0.3.traefik.me
+        paths:
+          - /
+    tls:
+      - hosts:
+          - openbao.172.18.0.3.traefik.me
+  extraEnvironmentVars:
+    BAO_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+injector:
+  enabled: false
+ui:
+  enabled: true
