@@ -1,0 +1,39 @@
+bootstrapValues:
+  projects:
+    test-cluster-local:
+      sourceRepos:
+        - "https://github.com/tuunit/kubara-local.git"
+        - "https://charts.external-secrets.io/"
+        - "https://charts.jetstack.io"
+        - "https://prometheus-community.github.io/helm-charts"
+        - "ghcr.io/traefik/helm"
+        - "oci://ghcr.io/traefik/helm"
+argo-cd:
+  repoServer:
+    volumeMounts:
+      - name: host-ca-certificates
+        mountPath: /etc/ssl/certs/ca-certificates.crt
+        readOnly: true
+    volumes:
+      - name: host-ca-certificates
+        hostPath:
+          path: /etc/ssl/certs/ca-certificates.crt
+          type: File
+  server:
+    ingressGrpc:
+      enabled: false
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+  configs:
+    cm:
+      url: http://172.18.0.3.traefik.me/argocd
+    rbac:
+      policy.default: role:admin
+      policy.csv: ""
