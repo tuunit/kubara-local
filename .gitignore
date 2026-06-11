@@ -72,3 +72,4 @@ out/
 /go.sum
 /go.mod
 bin/
+.local/

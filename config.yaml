@@ -1,0 +1,61 @@
+version: v1alpha1
+clusters:
+  - name: test-cluster
+    stage: local
+    type: hub
+    dnsName: test-cluster-local.traefik.me
+    ssoOrg: local
+    ssoTeam: local
+    ingressClassName: traefik
+    argocd:
+      repo:
+        https:
+          customer:
+            url: https://github.com/tuunit/kubara-local.git
+            targetRevision: main
+          managed:
+            url: https://github.com/tuunit/kubara-local.git
+            targetRevision: main
+    services:
+      argocd:
+        status: enabled
+      cert-manager:
+        status: enabled
+        config:
+          clusterIssuer:
+            email: yourname@your-domain.de
+            name: letsencrypt-staging
+            server: https://acme-staging-v02.api.letsencrypt.org/directory
+      external-dns:
+        status: disabled
+      external-secrets:
+        status: enabled
+      homer-dashboard:
+        status: enabled
+      kube-prometheus-stack:
+        status: enabled
+      kyverno:
+        status: disabled
+      kyverno-policies:
+        status: disabled
+      kyverno-policy-reporter:
+        status: disabled
+      loki:
+        status: disabled
+      longhorn:
+        status: disabled
+      metallb:
+        status: disabled
+      metrics-server:
+        status: disabled
+      oauth2-proxy:
+        status: enabled
+      traefik:
+        status: enabled
+      velero:
+        status: disabled
+        config:
+          backupMode: fs-backup
+          backupStorage:
+            create: true
+            region: eu01
