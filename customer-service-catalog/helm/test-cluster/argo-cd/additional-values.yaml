@@ -11,7 +11,24 @@ bootstrapValues:
 argo-cd:
   dex:
     enabled: false
+  redis:
+    resources:
+      requests:
+        memory: 64Mi
+      limits:
+        memory: 64Mi
+  applicationSet:
+    resources:
+      requests:
+        memory: 64Mi
+      limits:
+        memory: 64Mi
   repoServer:
+    resources:
+      requests:
+        memory: 128Mi
+      limits:
+        memory: 128Mi
     volumeMounts:
       - name: host-ca-certificates
         mountPath: /etc/ssl/certs/ca-certificates.crt
@@ -21,7 +38,18 @@ argo-cd:
         hostPath:
           path: /etc/ssl/certs/ca-certificates.crt
           type: File
+  controller:
+    resources:
+      requests:
+        memory: 128Mi
+      limits:
+        memory: 128Mi
   server:
+    resources:
+      requests:
+        memory: 128Mi
+      limits:
+        memory: 128Mi
     ingressGrpc:
       enabled: false
       annotations:
