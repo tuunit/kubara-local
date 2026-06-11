@@ -14,21 +14,21 @@ argo-cd:
   redis:
     resources:
       requests:
-        memory: 64Mi
+        memory: 128Mi
       limits:
-        memory: 64Mi
+        memory: 128Mi
   applicationSet:
     resources:
       requests:
-        memory: 64Mi
+        memory: 128Mi
       limits:
-        memory: 64Mi
+        memory: 128Mi
   repoServer:
     resources:
       requests:
-        memory: 128Mi
+        memory: 256Mi
       limits:
-        memory: 128Mi
+        memory: 256Mi
     volumeMounts:
       - name: host-ca-certificates
         mountPath: /etc/ssl/certs/ca-certificates.crt
@@ -41,15 +41,15 @@ argo-cd:
   controller:
     resources:
       requests:
-        memory: 128Mi
+        memory: 256Mi
       limits:
-        memory: 128Mi
+        memory: 256Mi
   server:
     resources:
       requests:
-        memory: 128Mi
+        memory: 256Mi
       limits:
-        memory: 128Mi
+        memory: 256Mi
     ingressGrpc:
       enabled: false
       annotations:
