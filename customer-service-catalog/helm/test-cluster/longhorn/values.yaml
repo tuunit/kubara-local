@@ -14,7 +14,7 @@ longhorn:
   ingress:
     enabled: true
     ingressClassName: traefik
-    host: test-cluster-local.traefik.me
+    host: 172.18.0.6.traefik.me
     tls: true
     tlsSecret: tls-longhorn
     path: "/longhorn(/|$)(.*)" # see path problems https://github.com/longhorn/longhorn/issues/1745

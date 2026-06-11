@@ -143,7 +143,7 @@ argo-cd:
         traefik.ingress.kubernetes.io/router.middlewares: oauth2-proxy-oauth-auth@kubernetescrd
   configs:
     cm:
-      url: https://test-cluster-local.traefik.me/argocd
+      url: https://172.18.0.6.traefik.me/argocd
       dex.config: |
         connectors:
           - type: github
@@ -163,7 +163,7 @@ argo-cd:
       server.basehref: /argocd
       server.insecure: true
   global:
-    domain: test-cluster-local.traefik.me
+    domain: 172.18.0.6.traefik.me
     revisionHistoryLimit: 5
     imagePullSecrets:
       - name: image-pull-secret
