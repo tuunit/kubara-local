@@ -1,3 +1,0 @@
-longhorn:
-  ingress:
-    enabled: true
