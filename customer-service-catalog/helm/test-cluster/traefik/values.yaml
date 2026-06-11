@@ -1,0 +1,20 @@
+traefik:
+  deployment:
+    imagePullSecrets:
+      - name: image-pull-secret
+  api:
+    dashboard: true
+  ingressRoute:
+    dashboard:
+      enabled: false
+  metrics:
+    prometheus:
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          monitoring.instance: "test-cluster-local"
+
+namespace:
+  labels:
+    project-name: "test-cluster"
+    stage: "local"

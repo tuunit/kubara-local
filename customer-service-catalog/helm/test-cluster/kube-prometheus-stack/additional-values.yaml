@@ -1,0 +1,16 @@
+kube-prometheus-stack:
+  prometheus:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
+  alertmanager:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
+  grafana:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
