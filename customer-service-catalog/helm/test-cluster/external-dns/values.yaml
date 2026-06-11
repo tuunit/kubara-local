@@ -26,7 +26,7 @@ namespace:
 external-dns:
   txtOwnerId: test-cluster-local
   domainFilters:
-    - 172.18.0.6.traefik.me
+    - 172.18.0.2.traefik.me
   extraArgs:
     source:
       - traefik-proxy
