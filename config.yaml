@@ -20,7 +20,7 @@ clusters:
       argocd:
         status: enabled
       cert-manager:
-        status: disabled
+        status: enabled
         config:
           clusterIssuer:
             email: yourname@your-domain.de

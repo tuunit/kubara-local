@@ -92,7 +92,7 @@ inClusterName: test-cluster
 inClusterSecretLabels:
 ## Hub labels
   argocd: "enabled"
-  cert-manager: "disabled"
+  cert-manager: "enabled"
   external-dns: "disabled"
   external-secrets: "enabled"
   homer-dashboard: "enabled"
