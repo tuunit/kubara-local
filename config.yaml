@@ -47,7 +47,7 @@ clusters:
       metallb:
         status: disabled
       metrics-server:
-        status: disabled
+        status: enabled
       oauth2-proxy:
         status: disabled
       traefik:

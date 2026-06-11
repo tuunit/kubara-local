@@ -103,7 +103,7 @@ inClusterSecretLabels:
   loki: "disabled"
   longhorn: "disabled"
   metallb: "disabled"
-  metrics-server: "disabled"
+  metrics-server: "enabled"
   oauth2-proxy: "disabled"
   traefik: "enabled"
   velero: "disabled"
