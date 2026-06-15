@@ -1,0 +1,43 @@
+namespace:
+  labels:
+    project-name: "test-cluster"
+    stage: "local"
+
+externalSecrets:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: test-cluster-local
+
+  secretStores:
+    test-cluster-local:
+      kind: ClusterSecretStore
+      name: test-cluster-local
+
+  secrets:
+    velero-credentials:
+      secretStoreRef: test-cluster-local
+      # name needs to cloud, as the aws plugin for velero looks at cloud per default
+      # other key names need to be specified in the backupStorageLocation
+      data:
+        - secretKey: cloud
+          remoteKey: velero_s3_credentials
+          remoteKeyProperty: cloud
+
+velero:
+  deployNodeAgent: true
+
+  configuration:
+    defaultVolumesToFsBackup: true
+    backupStorageLocation:
+      - name: default
+        provider: aws
+        bucket: <no value>
+        credential:
+          name: velero-credentials
+          key: cloud
+        config:
+          region: eu01
+          s3ForcePathStyle: "true"
+    volumeSnapshotLocation: []
+volumeSnapshotClass:
+  k8sProvider: "<no value>"
