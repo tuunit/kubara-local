@@ -16,9 +16,14 @@ longhorn:
     host: 192.168.97.3.traefik.me
     tls: true
     tlsSecret: tls-longhorn
-    path: "/longhorn(/|$)(.*)" # see path problems https://github.com/longhorn/longhorn/issues/1745
+    path: /longhorn
+    pathType: Prefix
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
+      traefik.ingress.kubernetes.io/router.middlewares: longhorn-redirect-noslash@kubernetescrd,longhorn-strip-prefix@kubernetescrd
+traefikPathRewrite:
+  enabled: true
+  pathPrefix: /longhorn
 
 namespace:
   labels:

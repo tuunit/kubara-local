@@ -201,7 +201,7 @@ externalSecrets:
     grafana-admin-credentials:
       secretStoreRef: test-cluster-local
       dataFrom:
-        - remoteKey: grafana_credentials
+        - remoteKey: test-cluster/local/kube-prometheus-stack/grafana_credentials
 
 namespace:
   labels:

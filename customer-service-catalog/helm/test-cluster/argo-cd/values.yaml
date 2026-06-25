@@ -9,7 +9,7 @@ bootstrapValues:
         kind: ClusterSecretStore
         name: "test-cluster-local"
       remoteRef:
-        remoteKey: docker_config
+        remoteKey: test-cluster/local/cluster_secrets/docker_config
         remoteKeyProperty: pull-secret
   projects:
     test-cluster-local:
@@ -21,6 +21,8 @@ bootstrapValues:
         ignore:
           - kind: Secret
             name: cert-manager-webhook-ca
+
+
 
   applicationSets:
     test-cluster-local:
@@ -67,6 +69,7 @@ bootstrapValues:
         longhorn:
           name: longhorn
           path: longhorn
+          namespace: longhorn
         metallb:
           name: metallb
           path: metallb

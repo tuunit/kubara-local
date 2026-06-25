@@ -20,7 +20,7 @@ externalSecrets:
       # other key names need to be specified in the backupStorageLocation
       data:
         - secretKey: cloud
-          remoteKey: velero_s3_credentials
+          remoteKey: test-cluster/local/velero/velero_s3_credentials
           remoteKeyProperty: cloud
 
 velero:
@@ -40,4 +40,4 @@ velero:
           s3ForcePathStyle: "true"
     volumeSnapshotLocation: []
 volumeSnapshotClass:
-  k8sProvider: "<no value>"
+  k8sProvider: "none"
