@@ -22,8 +22,6 @@ bootstrapValues:
           - kind: Secret
             name: cert-manager-webhook-ca
 
-
-
   applicationSets:
     test-cluster-local:
       projectName: "test-cluster-local"
