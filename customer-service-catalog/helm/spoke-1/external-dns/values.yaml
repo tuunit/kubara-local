@@ -1,0 +1,38 @@
+
+
+namespace:
+  labels:
+    project-name: "spoke-1"
+    stage: "local"
+external-dns:
+  txtOwnerId: spoke-1-local
+  domainFilters:
+    - 192.168.97.4.traefik.me
+  extraArgs:
+    source:
+      - traefik-proxy
+    webhook-provider-url: http://localhost:8080
+  rbac:
+    create: true
+    additionalPermissions:
+      - apiGroups: ["traefik.io"]
+        resources:
+          - ingressroutes
+          - ingressroutetcps
+          - ingressrouteudps
+          - tlsoptions
+          - tlsstores
+        verbs: ["get", "watch", "list"]
+      - apiGroups: [""]
+        resources:
+          - "namespaces"
+        verbs: ["get", "watch", "list"]
+  global:
+    imagePullSecrets:
+      - name: image-pull-secret
+    security:
+      allowInsecureImages: true
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      monitoring.instance: "spoke-1-local"

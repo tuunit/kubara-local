@@ -18,7 +18,7 @@ clusters:
             targetRevision: main
     services:
       argocd:
-        status: enabled
+        status: disabled
       cert-manager:
         status: enabled
         config:
@@ -47,7 +47,7 @@ clusters:
       metallb:
         status: disabled
       metrics-server:
-        status: enabled
+        status: disabled
       oauth2-proxy:
         status: disabled
       traefik:
@@ -59,3 +59,52 @@ clusters:
           backupStorage:
             create: true
             region: eu01
+  - name: spoke-1
+    stage: local
+    type: spoke
+    dnsName: 192.168.97.4.traefik.me
+    ssoOrg: local
+    ssoTeam: local
+    argocd:
+      repo:
+        https:
+          customer:
+            url: https://github.com/tuunit/kubara-local.git
+            targetRevision: main
+          managed:
+            url: https://github.com/tuunit/kubara-local.git
+            targetRevision: main
+    services:
+      cert-manager:
+        status: enabled
+        config:
+          clusterIssuer:
+            email: yourname@your-domain.de
+            name: letsencrypt-staging
+            server: https://acme-staging-v02.api.letsencrypt.org/directory
+      external-dns:
+        status: enabled
+      external-secrets:
+        status: enabled
+      kube-prometheus-stack:
+        status: enabled
+      kyverno:
+        status: enabled
+      kyverno-policies:
+        status: enabled
+      kyverno-policy-reporter:
+        status: enabled
+      loki:
+        status: enabled
+      longhorn:
+        status: disabled
+      metallb:
+        status: disabled
+      metrics-server:
+        status: enabled
+      oauth2-proxy:
+        status: enabled
+      traefik:
+        status: enabled
+      velero:
+        status: disabled
