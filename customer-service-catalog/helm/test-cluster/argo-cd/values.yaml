@@ -118,7 +118,7 @@ namespace:
 inClusterName: test-cluster
 inClusterSecretLabels:
 ## Hub labels
-  argocd: "enabled"
+  argocd: "disabled"
   cert-manager: "enabled"
   external-dns: "disabled"
   external-secrets: "enabled"
