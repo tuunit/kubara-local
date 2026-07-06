@@ -1,4 +1,4 @@
-version: v1alpha2
+version: v1alpha3
 clusters:
   - name: test-cluster
     stage: local
@@ -10,10 +10,10 @@ clusters:
     argocd:
       repo:
         https:
-          customer:
+          configs:
             url: https://github.com/tuunit/kubara-local.git
             targetRevision: main
-          managed:
+          components:
             url: https://github.com/tuunit/kubara-local.git
             targetRevision: main
     services:
