@@ -8,6 +8,8 @@ bootstrapValues:
         - "https://prometheus-community.github.io/helm-charts"
         - "ghcr.io/traefik/helm"
         - "oci://ghcr.io/traefik/helm"
+dexRestarter:
+  enabled: false
 argo-cd:
   dex:
     enabled: false
