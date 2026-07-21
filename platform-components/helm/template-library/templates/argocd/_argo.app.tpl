@@ -78,9 +78,6 @@ spec:
       - RespectIgnoreDifferences=true
       - ApplyOutOfSyncOnly=true
     {{- end }}
-    {{- if eq .name "argocd" }}
-    preserveResourcesOnDeletion: true
-    {{- end }}
   {{- if .ignoreDifferences }}
   ignoreDifferences:
     {{- with .ignoreDifferences }}
