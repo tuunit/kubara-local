@@ -77,9 +77,9 @@ spec:
       - FailOnSharedResource=true
       - RespectIgnoreDifferences=true
       - ApplyOutOfSyncOnly=true
+    {{- end }}
     {{- if eq .name "argocd" }}
     preserveResourcesOnDeletion: true
-    {{- end }}
     {{- end }}
   {{- if .ignoreDifferences }}
   ignoreDifferences:
