@@ -39,10 +39,6 @@ bootstrapValues:
         path: "platform-configs"
         targetRevision: "main"
       apps:
-        argocd:
-          name: argocd
-          path: argo-cd
-          namespace: argocd
         cert-manager:
           name: cert-manager
           path: cert-manager
@@ -101,7 +97,7 @@ namespace:
 inClusterName: test-cluster
 inClusterSecretLabels:
 ## Hub labels
-  argocd: "enabled"
+  argocd: "disabled"
   cert-manager: "enabled"
   external-dns: "disabled"
   external-secrets: "enabled"

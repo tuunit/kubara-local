@@ -8,7 +8,7 @@ clusters:
     ssoTeam: local
     ingressClassName: traefik
     argocd:
-      selfManaged: enabled
+      selfManaged: disabled
       repo:
         https:
           configs:
